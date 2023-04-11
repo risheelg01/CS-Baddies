@@ -7,8 +7,9 @@ from textblob import TextBlob
 
 def movie_review(movie_name):
    
-   #declare string to use in url for webscraping
+   #declare string to use in url for webscraping and the final output string to website
    url_movie_string = ""
+   output = ""
 
 
    #replace spaces, dashes, and colons in movie name with dashes to get url string
@@ -20,13 +21,58 @@ def movie_review(movie_name):
       else:
          url_movie_string += movie_character
    
-   print(url_movie_string)
+   #print(url_movie_string)
 
+   #create the full url for webscraping
    movie_url = "https://www.rottentomatoes.com/m/"+url_movie_string
 
-   print (movie_url)
+   #print (movie_url)
    
-         
+   #get url request for movie name and check if url was found
+   response = requests.get(movie_url)
+
+   if response.status_code < 200 or response.status_code >= 300:
+      #send error message because status code must be between 200-299 to be a successful response
+      output = "Could not find movie, try again :)"
+      #print(output)
+      return
+   
+   #print(response.text)
+
+
+   
+   #Use Beautiful Soup class to extract movie review from response HTML
+   soup = BeautifulSoup(response.text, "html.parser")
+   review_element = soup.find("div", {"class": "review js-clamp"})
+   review_text = review_element.text.strip()
+
+   #print(review_text)
+
+   #Perform sentiment analysis using the TextBlob analysis
+   movie_analysis = TextBlob(review_text)
+   movie_sentiment = movie_analysis.sentiment.polarity
+   if movie_sentiment > 0:
+      output = "This movie is good"
+   elif movie_sentiment < 0:
+      output = "This movie is bad"
+   else:
+      output = "This movie is mid asf"
+   
+   print(output)
+
+
+
+   """
+   for review in reviews_containers:
+      review_text = review.find("div", {"class": "the_review"}).text.strip()
+      print(review_text)
+
+   
+   review_element = soup.find('div', {'class': 'review_area'})
+   review_text = review_element.text.strip()
+   
+   print(review_text)
+   """      
 
 
 
