@@ -2,31 +2,66 @@
   text-align: center;
 }
 
+
 .App-logo {
-  height: 40vmin;
+  height: 80vmin;
   pointer-events: none;
+  margin-top: -60px;
 }
 
+/*
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
 }
+*/
+
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  background-image: url('https://wallpaperset.com/w/full/6/d/3/366121.jpg');
+  background-size: cover;
+  opacity: 1.00;
+  min-height: 100\vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  margin-top: -50px;
+  font-size: calc(30px + 2vmin);
   color: white;
 }
 
 .App-link {
   color: #61dafb;
 }
+
+input[type="text"],
+textarea {
+  width: 1000px;
+  height: 75px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 40px;
+  line-height: 1.5;
+}
+
+.highlight {
+  background-color: #000000;
+  color: #ffffff;
+  padding: 0 5px;
+}
+.white-rectangle {
+  width: 1000px;
+  height: 75px;
+  background-color: white;
+  border: 1px solid black;
+}
+
 
 @keyframes App-logo-spin {
   from {
