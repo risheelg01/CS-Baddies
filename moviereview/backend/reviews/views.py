@@ -3,10 +3,32 @@ import requests
 from django.http import HttpResponse
 from bs4 import BeautifulSoup
 from textblob import TextBlob
-from imdb import Cinemagoer
+#from imdb import Cinemagoer
 
 def movie_review(movie_name):
    
+   #declare string to use in url for webscraping
+   url_movie_string = ""
+
+
+   #replace spaces, dashes, and colons in movie name with dashes to get url string
+   for movie_character in movie_name:
+      if movie_character == '-' or movie_character == ' ':
+         url_movie_string += '_'
+      elif movie_character == ':':
+         continue
+      else:
+         url_movie_string += movie_character
+   
+   print(url_movie_string)
+
+   movie_url = "https://www.rottentomatoes.com/m/"+url_movie_string
+
+   print (movie_url)
+   
+         
+
+
 
    #Cinemagoer only lets you use the rating and not the text reviews, have to use Beautiful Soup
    """
@@ -40,6 +62,7 @@ def movie_review(movie_name):
 #run movie review method
 def main():
    movie_review("Big Hero 6")
+   movie_review("Spider-man: No Way Home")
 
 #ensure main() is only called if script is run as main module
 if __name__ == "__main__":
