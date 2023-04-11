@@ -46,6 +46,9 @@ def movie_review(movie_name):
    review_element = soup.find("div", {"class": "review js-clamp"})
    review_text = review_element.text.strip()
 
+   
+
+
    #print(review_text)
 
    #Perform sentiment analysis using the TextBlob analysis
@@ -58,6 +61,7 @@ def movie_review(movie_name):
    else:
       output = "This movie is mid asf"
    
+   #print out the output
    print(output)
 
 
