@@ -43,8 +43,20 @@ def movie_review(movie_name):
    
    #Use Beautiful Soup class to extract movie review from response HTML
    soup = BeautifulSoup(response.text, "html.parser")
-   review_element = soup.find("div", {"class": "review js-clamp"})
-   review_text = review_element.text.strip()
+   review_set = soup.find_all("div", {"class": "review js-clamp"})
+
+   
+
+   #loop through all the review elements on the website and extract review text for sentiment analysis
+   for review_element in review_set:   
+      review_text = review_element.text.strip()
+
+      #declare sentiment review object 
+      movie_analysis = TextBlob(review_text)
+      movie_sentiment = movie_analysis.sentiment.polarity
+      #print(review_text)
+
+
 
    
 
@@ -52,8 +64,7 @@ def movie_review(movie_name):
    #print(review_text)
 
    #Perform sentiment analysis using the TextBlob analysis
-   movie_analysis = TextBlob(review_text)
-   movie_sentiment = movie_analysis.sentiment.polarity
+   
    if movie_sentiment > 0:
       output = "This movie is good"
    elif movie_sentiment < 0:
@@ -64,7 +75,7 @@ def movie_review(movie_name):
    #print out the output
    print(output)
 
-
+   
 
    """
    for review in reviews_containers:
@@ -112,7 +123,7 @@ def movie_review(movie_name):
 #run movie review method
 def main():
    movie_review("Big Hero 6")
-   movie_review("Spider-man: No Way Home")
+   #movie_review("Spider-man: No Way Home")
 
 #ensure main() is only called if script is run as main module
 if __name__ == "__main__":
