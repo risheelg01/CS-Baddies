@@ -5,7 +5,7 @@
 
 
 .App-logo {
-  height: 80vmin;
+  height: 40vmin;
   pointer-events: none;
   margin-top: -60px;
 }
@@ -20,18 +20,31 @@
 
 
 .App-header {
-  background-color: #282c34;
+  position: relative;
   background-image: url('https://wallpaperset.com/w/full/6/d/3/366121.jpg');
   background-size: cover;
-  opacity: 1.00;
-  min-height: 100\vh;
+  height: 100vh; /* Updated property */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: -50px;
+  margin-top: 0px;
   font-size: calc(30px + 2vmin);
   color: white;
+  z-index: 1;
+}
+
+
+.App-header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.75;
+  z-index: -1; /* Add this line */
 }
 
 
@@ -41,7 +54,7 @@
 
 input[type="text"],
 textarea {
-  width: 1000px;
+  width: 800px;
   height: 75px;
   padding: 8px;
   border: 1px solid #ccc;
@@ -58,7 +71,7 @@ textarea {
   padding: 0 5px;
 }
 .white-rectangle {
-  width: 1000px;
+  width: 800px;
   height: 75px;
   background-color: white;
   border: 1px solid black;

@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+import logo from './Logo.svg';
 import './App.css';
 
 function App() {
@@ -7,7 +7,7 @@ function App() {
   <header className="App-header">
      <img src={logo} className="App-logo" alt="logo" /> 
     <p>
-  <span class="highlight">The best tool to give you movie reviews!</span>
+  <span class>The best tool to give you movie reviews!</span>
   </p>
   {/*
     <a
@@ -22,7 +22,7 @@ function App() {
     <label>
       <textarea name></textarea>
     </label>
-    <span class="highlight">Result:</span>
+    <span class>Result:</span>
   </header>
 </div>
 
