@@ -39,19 +39,18 @@ function App() {
         <form onSubmit={handleSubmit}>
           <div>
             <label>
-              <textarea
-                name="text"
+              <input
+                type="text"
+                placeholder="Enter Movie"
                 value={textValue}
                 onChange={handleTextareaChange}
                 onKeyPress={handleKeyPress}
               />
             </label>
-            <br />
             <button type="submit">Review</button>
-            <br />
-            <span className="result">{result}</span>
           </div>
         </form>
+        <span className="result">{result}</span>
       </header>
     </div>
   );

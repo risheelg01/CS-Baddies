@@ -3,6 +3,7 @@ import requests
 from django.http import HttpResponse
 from bs4 import BeautifulSoup
 from textblob import TextBlob
+from django.http import JsonResponse
 #from imdb import Cinemagoer
 
 def movie_review(movie_name):
@@ -118,6 +119,11 @@ def movie_review(movie_name):
    if len(reviews) == 0:
       return "No reviews for " +str(movie_name)
 """
+
+def movie_review_view(request, movie_name):
+    output = movie_review(movie_name)
+    return JsonResponse({'output': output})
+
 
 #run movie review method
 def main():
