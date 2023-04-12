@@ -77,6 +77,22 @@ textarea {
   border: 1px solid black;
 }
 
+button {
+  background-image: linear-gradient(to right, #f85032, #e73827);
+  color: white;
+  font-size: 20px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
 
 @keyframes App-logo-spin {
   from {
