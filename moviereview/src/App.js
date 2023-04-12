@@ -40,7 +40,6 @@ function App() {
         </form>
         {result && (
           <div>
-            <span>Result:</span>
             <p>{result}</p>
           </div>
         )}
