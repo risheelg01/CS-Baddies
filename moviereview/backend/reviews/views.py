@@ -35,7 +35,7 @@ def movie_review(movie_name):
       #send error message because status code must be between 200-299 to be a successful response
       output = "Could not find movie, try again :)"
       #print(output)
-      return
+      return output
    
    #print(response.text)
 
@@ -45,32 +45,31 @@ def movie_review(movie_name):
    soup = BeautifulSoup(response.text, "html.parser")
    review_set = soup.find_all("div", {"class": "review js-clamp"})
 
-   
+   #if there is no reviews for movie, print error message
+   if len(review_set) == 0:
+      output = "Could not find any reviews for this movie"
+      return output
+
+   #declare counter for sentiment analysis and number of reviews
+   movie_sentiment_counter = 0
+   review_counter = 0
 
    #loop through all the review elements on the website and extract review text for sentiment analysis
    for review_element in review_set:   
       review_text = review_element.text.strip()
-
+      review_counter += 1
       #declare sentiment review object 
       movie_analysis = TextBlob(review_text)
-      movie_sentiment = movie_analysis.sentiment.polarity
+      movie_sentiment_counter  += movie_analysis.sentiment.polarity
       #print(review_text)
 
-
-
-   
-
-
-   #print(review_text)
-
-   #Perform sentiment analysis using the TextBlob analysis
-   
-   if movie_sentiment > 0:
+   #if the total sentiment is positive, movie is good, otherwise bad
+   if movie_sentiment_counter > 0:
       output = "This movie is good"
-   elif movie_sentiment < 0:
+   elif movie_sentiment_counter < 0:
       output = "This movie is bad"
    else:
-      output = "This movie is mid asf"
+      output = "This movie is mid"
    
    #print out the output
    print(output)
@@ -123,7 +122,9 @@ def movie_review(movie_name):
 #run movie review method
 def main():
    movie_review("Big Hero 6")
-   #movie_review("Spider-man: No Way Home")
+   movie_review("Spider-man: No Way Home")
+   movie_review("Doctor Strange In the Multiverse of Madness")
+   movie_review("Jaws The Revenge")
 
 #ensure main() is only called if script is run as main module
 if __name__ == "__main__":
