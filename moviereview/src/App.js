@@ -17,9 +17,16 @@ function App() {
     // variable as the payload.
     console.log('Submitting form with text value:', textValue);
 
-    // Replace this with your actual code to get the result from the backend
-    const mockResult = 'This is the result!';
-    setResult(mockResult);
+    // Simulating a backend response delay of 2 seconds
+    setTimeout(() => {
+      setResult('This is the result!');
+    });
+  }
+
+  function handleKeyPress(event) {
+    if (event.key === 'Enter') {
+      handleSubmit(event);
+    }
   }
 
   return (
@@ -32,17 +39,19 @@ function App() {
         <form onSubmit={handleSubmit}>
           <div>
             <label>
-              <textarea name="text" value={textValue} onChange={handleTextareaChange}></textarea>
+              <textarea
+                name="text"
+                value={textValue}
+                onChange={handleTextareaChange}
+                onKeyPress={handleKeyPress}
+              />
             </label>
-            <br></br>
+            <br />
             <button type="submit">Review</button>
+            <br />
+            <span className="result">{result}</span>
           </div>
         </form>
-        {result && (
-          <div>
-            <p>{result}</p>
-          </div>
-        )}
       </header>
     </div>
   );
