@@ -73,7 +73,7 @@ def movie_review(movie_name):
       output = "This movie is mid"
    
    #print out the output
-   return JsonResponse({"message": output})
+   print(output)
 
    
 
@@ -119,6 +119,11 @@ def movie_review(movie_name):
    if len(reviews) == 0:
       return "No reviews for " +str(movie_name)
 """
+
+def movie_review_view(request, movie_name):
+    output = movie_review(movie_name)
+    return JsonResponse({'output': output})
+
 
 #run movie review method
 def main():

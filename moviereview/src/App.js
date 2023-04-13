@@ -13,26 +13,14 @@ function App() {
   function handleSubmit(event) {
     event.preventDefault();
 
-    fetch('http://127.0.0.1:8000/movies_backend/', {
-        method: 'POST',
-        body: JSON.stringify({ data: textValue }),
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        mode: 'cors'
-    })
-    .then(response => response.text())
-    .then(data => {
-      console.log(data);
-      setResult(data)
-    })
-    .catch(error => console.error(error));
-
     // Here, you can send a POST request to the backend with the textValue
     // variable as the payload.
     console.log('Submitting form with text value:', textValue);
 
     // Simulating a backend response delay of 2 seconds
+    setTimeout(() => {
+      setResult('This is the result!');
+    });
   }
 
   function handleKeyPress(event) {
