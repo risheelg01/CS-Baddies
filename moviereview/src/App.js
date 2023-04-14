@@ -6,50 +6,45 @@ function App() {
   const [textValue, setTextValue] = useState('');
   const [result, setResult] = useState('');
 
+  // Handler function to update text value state on input change
   function handleTextareaChange(event) {
     setTextValue(event.target.value);
   }
 
+  // Handler function to handle form submission
   function handleSubmit(event) {
     event.preventDefault();
 
+    // Send POST request to backend with text value
     fetch('http://127.0.0.1:8000/movies_backend/', {
-        method: 'POST',
-        body: JSON.stringify({ data: textValue }),
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        mode: 'cors'
+      method: 'POST',
+      body: JSON.stringify({ data: textValue }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      mode: 'cors'
     })
-    .then(response => {
-      response = response.json()
-      console.log(response)
-      return response
-    })
-    .then(data => {
-      setResult(data["message"])
-    })
-    .catch(error => console.error(error));
+    .then(response => response.json()) // Parse response data as JSON
+    .then(data => setResult(data["message"])) // Update result state with response message
+    .catch(error => console.error(error)); // Log any errors to console
 
-    // Here, you can send a POST request to the backend with the textValue
-    // variable as the payload.
-    console.log('Submitting form with text value:', textValue);
-
-    // Simulating a backend response delay of 2 seconds
+    console.log('Submitting form with text value:', textValue); // Log the form submission
   }
 
+  // Handler function to trigger form submission on Enter key press
   function handleKeyPress(event) {
     if (event.key === 'Enter') {
       handleSubmit(event);
     }
   }
 
+  // Render the application UI
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          <span class>The best tool to give you movie reviews!</span>
+          <span>The best tool to give you movie reviews!</span>
         </p>
         <form onSubmit={handleSubmit}>
           <div>

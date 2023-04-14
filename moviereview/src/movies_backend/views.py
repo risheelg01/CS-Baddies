@@ -36,7 +36,7 @@ def index(request):
 
     if response.status_code < 200 or response.status_code >= 300:
         #send error message because status code must be between 200-299 to be a successful response
-        output = "Could not find movie, try addding the year"
+        output = "Could not find movie, try adding the year"
         #print(output)
         return JsonResponse({"message": output})
     

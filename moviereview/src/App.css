@@ -1,24 +1,18 @@
+/* Center all text and set opacity to 1 */
 .App {
   text-align: center;
   opacity: 1.00;
 }
 
-
+/* Set height of logo and disable pointer events */
 .App-logo {
   height: 30vmin;
   pointer-events: none;
   margin-top: -60px;
 }
 
-/*
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-*/
-
-
+/* Set background image and size, set height of header to 100% of viewport,
+and center all content vertically and horizontally */
 .App-header {
   position: relative;
   background-image: url('https://wallpaperset.com/w/full/6/d/3/366121.jpg');
@@ -34,7 +28,7 @@
   z-index: 1;
 }
 
-
+/* Add a semi-transparent black overlay to the header */
 .App-header::before {
   content: "";
   position: absolute;
@@ -47,23 +41,12 @@
   z-index: -1; /* Add this line */
 }
 
-
+/* Set color of links */
 .App-link {
   color: #61dafb;
 }
 
-.highlight {
-  background-color: #000000;
-  color: #ffffff;
-  padding: 0 5px;
-}
-.white-rectangle {
-  width: 800px;
-  height: 75px;
-  background-color: white;
-  border: 1px solid black;
-}
-
+/* Style for buttons */
 button {
   background-image: linear-gradient(to right, #f85032, #e73827);
   color: white;
@@ -75,16 +58,20 @@ button {
   transition: all 0.3s ease;
 }
 
+/* Add hover effect to buttons */
 button:hover {
   transform: translateY(-2px);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
+
+/* Set style for container for results */
 .result-container {
   position: relative;
   margin-top: 20px;
   text-align: center;
 }
 
+/* Style for label of results */
 .result-label {
   display: block;
   margin-bottom: 10px;
@@ -92,6 +79,7 @@ button:hover {
   font-weight: bold;
 }
 
+/* Style for text of results */
 .result-text {
   position: absolute;
   left: 0;
@@ -102,12 +90,14 @@ button:hover {
   line-height: 1.5;
 }
 
+/* Style for form */
 form {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+/* Style for text input */
 input[type="text"] {
   padding: 15px;
   font-size: 25px;
@@ -117,6 +107,7 @@ input[type="text"] {
   width: 700px;
 }
 
+/* Style for submit button */
 button[type="submit"] {
   padding: 15px;
   border: none;
@@ -126,15 +117,4 @@ button[type="submit"] {
   color: #fff;
   margin-left: 10px;
   cursor: pointer;
-}
-
-
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
