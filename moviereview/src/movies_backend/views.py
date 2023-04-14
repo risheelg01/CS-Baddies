@@ -11,10 +11,10 @@ def index(request):
     url_movie_string = ""
     output = ""
     request_body = json.loads(request.body)
-    print(request_body)
+    #print(request_body)
     movie_name = request_body['data']
     
-    print(movie_name)
+    #print(movie_name)
     #replace spaces, dashes, and colons in movie name with dashes to get url string
     for movie_character in movie_name:
         if movie_character == '-' or movie_character == ' ':
@@ -65,16 +65,16 @@ def index(request):
         movie_analysis = TextBlob(review_text)
         movie_sentiment_counter  += movie_analysis.sentiment.polarity
         #print(review_text)
-    print(movie_sentiment_counter)
+    #print(movie_sentiment_counter)
     #if the total sentiment is positive, movie is good, otherwise bad
-    if movie_sentiment_counter > 0.1:
+    if movie_sentiment_counter > 0.3:
         output = "This movie is good"
-    elif movie_sentiment_counter < -0.1:
+    elif movie_sentiment_counter < -0.3:
         output = "This movie is bad"
     else:
         output = "This movie is mid"
     
-    print(output)
+    #print(output)
     #print out the output
     return JsonResponse({"message": output})
         # return  HttpResponse("Hello")
