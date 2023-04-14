@@ -2,7 +2,7 @@
 
 GitReview is a website that provides users with comprehensive and informative reviews of the latest movies. The website has a simple and intuitive interface that allows users to quickly and easily find the movie they're interested in and read an expert analysis of the film.
 
-The frontend of this website is developed using HTML and CSS. The integration of these languages enables the development of the website and all its interactive features in the user interface. The process starts with the initial page, which includes a movie gallery for the background, a search bar, and a button to initiate the review and recommendation processes of the backend
+The frontend of this website is developed using JavaScript, HTML, and CSS. The integration of these languages enables the development of the website and all its interactive features in the user interface. The process starts with the initial page, which includes a movie gallery for the background, a search bar, and a button to initiate the review and recommendation processes of the backend
 
 As for the backend, the website utilizes Python web scraping to retrieve reviews for the user. Once the user inputs the name of a movie, it is converted into a readable string, which is then used to web scrape the Rotten Tomatoes review database. The BeautifulSoup library is used to extract all the reviews, and the TextBlob library is used to create a sentiment analysis tool that concludes a composite review through emotion and text analysis. Finally, Django is used to connect the backend to the front end, which informs the user whether their movie is 'good' or 'bad'.
 
