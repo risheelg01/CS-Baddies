@@ -1,6 +1,6 @@
-# CS Baddies
+# Git Reviews
 
-GitReview is a website that provides users with comprehensive and informative reviews of the latest movies. The website has a simple and intuitive interface that allows users to quickly and easily find the movie they're interested in and read an expert analysis of the film.
+Git Reviews is a website that provides users with comprehensive and informative reviews of the latest movies. The website has a simple and intuitive interface that allows users to quickly and easily find the movie they're interested in and read an expert analysis of the film.
 
 The frontend of this website is developed using JavaScript, HTML, and CSS. The integration of these languages enables the development of the website and all its interactive features in the user interface. The process starts with the initial page, which includes a movie gallery for the background, a search bar, and a button to initiate the review and recommendation processes of the backend
 
