@@ -38,7 +38,7 @@ function App() {
     }
   }
 
-  // Render the application UI
+  // app UI
   return (
     <div className="App">
       <header className="App-header">
