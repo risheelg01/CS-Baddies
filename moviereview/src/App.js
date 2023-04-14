@@ -21,10 +21,13 @@ function App() {
         },
         mode: 'cors'
     })
-    .then(response => response.text())
+    .then(response => {
+      response = response.json()
+      console.log(response)
+      return response
+    })
     .then(data => {
-      console.log(data);
-      setResult(data)
+      setResult(data["message"])
     })
     .catch(error => console.error(error));
 
